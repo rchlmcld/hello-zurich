@@ -1,0 +1,43 @@
+---
+title: "STA426_Exercise1b"
+author: "Rachel McLeod"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Visualising data from the log-normal distribution
+
+This short document will take you through the stages of randomly sampling 100 values from the log-normal distribution where $\mu$ = 1 and $\sigma$ = 0.25, visualising these data as  a histogram on a normal and log scale before finally presenting some descriptive statistics of the data.
+
+# Sampling values
+
+```{r sampling}
+data <- rlnorm(100, 1, 0.25)
+```
+
+# Plotting values
+
+The generated values are then plotted as a histogram.
+
+On a normal scale:
+
+```{r histo, echo=TRUE}
+h <- hist(data, breaks = 10)
+```
+
+On a log scale:
+
+```{r logscale, echo=TRUE}
+l <- hist(log(data), breaks = 10)
+```
+```{r stats, echo=FALSE}
+mean <- mean(data)
+stddev <- sd(data)
+```
+
+# Descriptive Statistics
+
+The mean of the data is `r mean` and the standard deviation is `r stddev`.
